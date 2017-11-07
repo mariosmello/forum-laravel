@@ -26,3 +26,9 @@ $threads->each(function($thread){factory('App\Reply', 10)->create(['thread_id' =
     php artisan make:auth
     ```
 4. Criamos o acesso a lista de threads e a visualização de uma única. Criando também os testes.
+
+## Aula 3
+
+1. Podemos visualizar a lista de Replies de uma Thread
+2. Criamos um teste de unidade para testar que cada resposta tem um autor
+3. Fizemos a relação de autor com cada resposta
