@@ -26,5 +26,25 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+            @if(auth()->check())
+                <form method="post" action="{{$thread->path() . '/replies'}}">
+                    {{ csrf_field() }}
+                    <textarea name="body" class="form-control"
+                    placeholder="Have something to say?"></textarea>
+                    <button type="submit" class="btn btn-default">Post</button>
+                </form>
+            @else
+                <p class="text-center">You need <a href="{{route('login')}}">sign in</a> to participate.</p>
+            @endif
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+        <br />
+
     </div>
 @endsection
