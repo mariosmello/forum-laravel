@@ -13,11 +13,13 @@ class ParticipateInForumTest extends TestCase
     /** @test */
     public function unauthenticated_user_may_no_participate_in_forum_threads()
     {
-        $this->expectException('Illuminate\Auth\AuthenticationException');
+        $this->withExceptionHandling();
+
         create('App\User');
         $thread = create('App\Thread');
         $reply = create('App\Reply');
-        $this->post($thread->path() . '/replies', $reply->toArray());
+        $this->post($thread->path() . '/replies', $reply->toArray())
+        ->assertRedirect('/login');
     }
 
     /** @test */
