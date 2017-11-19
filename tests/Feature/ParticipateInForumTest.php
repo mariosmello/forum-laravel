@@ -15,11 +15,10 @@ class ParticipateInForumTest extends TestCase
     {
         $this->withExceptionHandling();
 
-        create('App\User');
         $thread = create('App\Thread');
         $reply = create('App\Reply');
         $this->post($thread->path() . '/replies', $reply->toArray())
-        ->assertRedirect('/login');
+            ->assertRedirect('/login');
     }
 
     /** @test */
