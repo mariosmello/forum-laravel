@@ -14,20 +14,20 @@ class ParticipateInForumTest extends TestCase
     public function unauthenticated_user_may_no_participate_in_forum_threads()
     {
         $this->expectException('Illuminate\Auth\AuthenticationException');
-        factory('App\User')->create();
-        $thread = factory('App\Thread')->create();
-        $reply = factory('App\Reply')->create();
+        create('App\User');
+        $thread = create('App\Thread');
+        $reply = create('App\Reply');
         $this->post($thread->path() . '/replies', $reply->toArray());
     }
 
     /** @test */
     public function an_authenticated_user_may_participate_in_forum_threads()
     {
-        $user = factory('App\User')->create();
+        $user = create('App\User');
         $this->be($user);
 
-        $thread = factory('App\Thread')->create();
-        $reply = factory('App\Reply')->make();
+        $thread = create('App\Thread');
+        $reply = make('App\Reply');
         $this->post($thread->path() . '/replies', $reply->toArray());
 
         $this->get($thread->path())
