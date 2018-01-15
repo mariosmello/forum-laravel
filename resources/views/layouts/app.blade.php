@@ -38,6 +38,11 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="/threads">All Threads</a></li>
+
+                    <li>
+                        <a href="/threads/create" title="New Thread">New Thread</a>
+                    </li>
+
                     <li class="dropdown">
 
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">
@@ -54,6 +59,7 @@
                         </ul>
 
                     </li>
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->
