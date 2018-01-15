@@ -37,7 +37,22 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="/threads">All Threads</a></li>
+
+                    <li class="dropdown">
+
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                            Browse <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/threads">All Threads</a>
+                                @if(auth()->check())
+                                <a href="/threads?by={{auth()->user()->name}}">My Threads</a>
+                                @endif
+                            </li>
+                        </ul>
+
+                    </li>
 
                     <li>
                         <a href="/threads/create" title="New Thread">New Thread</a>
@@ -46,7 +61,7 @@
                     <li class="dropdown">
 
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                            Dropdown <span class="caret"></span>
+                            Channels <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             @foreach($channels as $channel)
