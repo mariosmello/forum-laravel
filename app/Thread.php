@@ -34,4 +34,9 @@ class Thread extends Model
         $this->replies()->create($reply);
     }
 
+    public function scopefilter($query, $filter)
+    {
+        return $filter->apply($query);
+    }
+
 }
