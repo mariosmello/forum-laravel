@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Favorite;
 use App\Reply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +16,7 @@ class FavoritesController extends Controller
 
     public function store(Reply $reply)
     {
-        $reply->favorited();
+        $reply->favorite();
 
         return back();
     }
