@@ -73,12 +73,14 @@ class CreateThreadsTest extends TestCase
     }
 
     /** @test */
-    function authorized_users_can_deletea_threads()
+    function authorized_users_can_delete_threads()
     {
-        $this->signIn();
 
-        $thread = create('App\Thread');
-        $reply = create('App\Reply', ['thread_id' => $thread->id]);
+        $user = create('App\User');
+        $this->signIn($user);
+
+        $thread = create('App\Thread', ['user_id' => $user->id]);
+        $reply = create('App\Reply', ['thread_id' => $thread->id, 'user_id' => $user->id]);
 
         $response = $this->json('DELETE', $thread->path());
 
